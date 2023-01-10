@@ -54,13 +54,14 @@
 </script>
 
 <div class="flex justify-center items-center w-full h-screen">
-	<form class="flex flex-col gap-10" method="POST" action="?/upload">
+	<!-- <form class="flex flex-col gap-10" method="POST" action="?/upload"> -->
+	<form class="flex flex-col gap-10" action="?/upload">
 		<input type="file" accept="audio/*" name="file" bind:files />
 		<button type="submit" class="bg-blue-300 px-4 py-6 rounded-2xl">submit</button>
 	</form>
-	<button
+	<!-- <button
 		type="submit"
 		class="bg-blue-300 px-4 py-6 rounded-2xl"
 		on:click={() => uploadFile(files[0])}>submit</button
-	>
+	> -->
 </div>
