@@ -78,7 +78,7 @@
 	};
 </script>
 
-<h1>{JSON.stringify(data.pageDetails)}</h1>
+<!-- <h1>{JSON.stringify(data.pageDetails)}</h1> -->
 <!-- <h1>{JSON.stringify(data.transcripts)}</h1> -->
 
 <div>
@@ -99,14 +99,14 @@
 {/each} -->
 
 <table class="flex flex-col p-6 gap-2 bg-gray-100">
-	<thead>
+	<!-- <thead>
 		<tr>
 			<th>id</th>
 			<th>id</th>
 			<th>id</th>
 			<th>id</th>
 		</tr>
-	</thead>
+	</thead> -->
 	<tbody>
 		{#each queuedTranscripts as transcript}
 			<tr class="flex p-6 hover:bg-gray-300 w-full justify-between bg-white my-2 rounded-2xl">
