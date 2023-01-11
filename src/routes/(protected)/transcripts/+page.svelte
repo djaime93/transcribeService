@@ -17,6 +17,11 @@
 
 	let transcripts = data.transcripts;
 
+	const formatDate = (dateString) => {
+		const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+		return new Date(dateString).toLocaleDateString(undefined, options);
+	};
+
 	$: {
 		// console.log(transcripts);
 		queuedTranscripts = transcripts.filter((transcript) => transcript.status === 'queued');
@@ -121,7 +126,7 @@
 						class="bg-blue-300 py-2 px-6 rounded-xl"
 						on:click={() => startTranscription(transcript.audio_url)}>Transcibe</button
 					>
-					<a href="transcripts/{transcript.id}">
+					<a href="transcripts/{transcript.id}" target="blank">
 						<img class="h-6" src="/icons/open.png" alt="" />
 					</a>
 				</td>
@@ -140,7 +145,7 @@
 					<button class="bg-blue-300 py-2 px-6 rounded-xl" on:click={getTranscripts}
 						>Check Status</button
 					>
-					<a href="transcripts/{transcript.id}">
+					<a href="transcripts/{transcript.id}" target="blank">
 						<img class="h-6" src="/icons/open.png" alt="" />
 					</a>
 				</td>
@@ -152,8 +157,8 @@
 				<td> <a href="transcripts/{transcript.id}"> {transcript.id}</a></td>
 				<td class="bg-green-400 py-2 px-2 rounded-xl">{transcript.status}</td>
 				<td>
-					<div>{transcript.created}</div>
-					<div>{transcript.completed}</div>
+					<div>{formatDate(transcript.created)}</div>
+					<div>{formatDate(transcript.completed)}</div>
 				</td>
 				<td class="flex gap-2 items-center">
 					<button
@@ -162,7 +167,7 @@
 					>
 						<img class="h-6" src="/icons/download (7).png" alt="" />
 					</button>
-					<a href="transcripts/{transcript.id}">
+					<a href="transcripts/{transcript.id}" target="blank">
 						<img class="h-6" src="/icons/open.png" alt="" />
 					</a>
 				</td>
